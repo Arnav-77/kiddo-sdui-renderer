@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StatusBar as RNStatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { getBlockComponent } from './src/registry';
 import { payload as backToSchool } from './src/payloads/back-to-school';
@@ -26,7 +34,11 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView
-        style={[styles.container, { backgroundColor: theme.background }]}
+        style={[
+          styles.container,
+          { backgroundColor: theme.background },
+          { paddingTop: Platform.OS === 'android' ? RNStatusBar.currentHeight ?? 0 : 0 },
+        ]}
       >
         <View style={styles.switcher}>
           {CAMPAIGNS.map((campaign) => {
@@ -59,6 +71,7 @@ export default function App() {
 
         <FlashList
           data={activePayload.blocks}
+          contentContainerStyle={{ paddingBottom: 80 }}
           keyExtractor={(item) => item.id}
           renderItem={({ item }: { item: Block }) => {
             const Component = getBlockComponent(item.type);
