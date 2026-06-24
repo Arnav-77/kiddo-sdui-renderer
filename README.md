@@ -12,6 +12,16 @@ The app reads a campaign payload (just a TypeScript object for this assignment, 
 
 Switching campaigns flips the theme across every block instantly because all colors come from a Context, not from hardcoded values.
 
+## Demo videos
+
+Three short screen recordings, one per campaign. Each shows the campaign loading, the theme applying, scrolling behavior, and one or two interactions:
+
+[View the demos on Google Drive](https://drive.google.com/drive/folders/1Zm-ZwesT2tXtgH-i-SXviBO8t64bdVkB?usp=sharing)
+
+- `1-back-to-school.mp4` — yellow + blue theme, vertical feed, horizontal "Lunchboxes & Bags" collection, add to cart
+- `2-summer-playhouse.mp4` — ocean blue theme, campaign switch from Back to School
+- `3-mystery-gift-carnival.mp4` — red theme, confetti overlay firing on switch, coupon action on banner tap
+
 ## Running it
 
 ```bash
